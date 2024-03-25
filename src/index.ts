@@ -16,7 +16,7 @@ app.use(express.json());
 // });
 
 //je defini l'url pour le bookrouter uniquement
-app.use("/api/plant", plantRouter);
+app.use("/api/plants", plantRouter);
 
 app.listen(process.env.PORT, () => {
     console.log(`Server is running on port ${process.env.PORT}`);
