@@ -10,11 +10,6 @@ plantRouter.get("/", (req, res) => {
     plantController.getAll(req,res);
 });
 
-plantRouter.delete("/:id", (req,res) => {
-    console.log("plantRouterDelete");
-    const id = Number(req.params.id);
-    plantController.deletePlantById(id, res);
-})
 
 // on exporte pour qu'il puisse etre appelé par index.ts
 export default plantRouter;

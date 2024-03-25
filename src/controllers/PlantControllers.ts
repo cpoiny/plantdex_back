@@ -13,11 +13,6 @@ class PlantController {
         res.send({status: "OK", data: plants})
     }
 
-    async deletePlantById(id: number, res: Response) {
-        console.log("PlantControllerDelete");
-        const plants = await this.plantService.deleteById(id);
-        res.send ({status: "OK", data: plants});
-    }
 }
 
 export default PlantController;
