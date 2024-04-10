@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import AppDataSource from './data-source';
 import plantRouter from './routes/PlantRoutes';
+import userRouter from './routes/UserRoutes';
 
 
 AppDataSource.initialize().then(() => {
@@ -17,6 +18,8 @@ app.use(express.json());
 
 //je defini l'url pour le bookrouter uniquement
 app.use("/plants", plantRouter);
+
+app.use("/users", userRouter);
 
 app.listen(process.env.PORT, () => {
     console.log(`Server is running on port ${process.env.PORT}`);

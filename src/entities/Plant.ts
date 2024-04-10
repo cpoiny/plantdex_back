@@ -6,18 +6,18 @@ export class Plant {
   @PrimaryColumn()
   id?: number;
 
-  @Column({nullable : false})
+  @Column({nullable : true})
   nom?: string;
 
-  @Column({nullable : false})
+  @Column({nullable : true})
   soleil?: string;
 
-  @Column({nullable : false})
+  @Column({nullable : true})
   arrosage?: number;
 
-  @Column({nullable : false})
+  @Column({nullable : true})
   categorie?: string;
 
-  @Column({nullable : false})
+  @Column({nullable : true})
   image?: string
 }
