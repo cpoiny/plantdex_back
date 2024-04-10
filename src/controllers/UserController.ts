@@ -29,11 +29,11 @@ export class UserController {
 
         // le service va verifier que email existe et password associé aussi, génére le token et le renvoie
         const user = await this.userService.login(email, password);
-        console.log("je veux un user", user);
+    
         const token = user!.token
         // si on a un token on le renvoit
         if(token) {
-            res.status(201).json({ user: user });
+            res.status(201).json(user);
         } else {
             res.status(500).json({ message: "You Failed to connect !" });
         }
