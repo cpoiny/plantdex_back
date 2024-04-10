@@ -9,9 +9,10 @@ export class UserController {
    // SIGNUP
     async signup(req : Request, res : Response) {
         console.log("UserController- signup");
+        const pseudo = req.body.pseudo;
         const email = req.body.email;
         const password = req.body.password;
-        const createUser = await this.userService.signup(email, password);
+        const createUser = await this.userService.signup(pseudo, email, password);
 
         if (createUser) {
             res.status(201).json({ message: "User created" });

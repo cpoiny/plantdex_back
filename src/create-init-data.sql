@@ -1,6 +1,7 @@
 CREATE DATABASE plantdex_bdd;
 
 DROP TABLE IF EXISTS plant CASCADE; 
+DROP TABLE IF EXISTS "user" CASCADE; 
 
 CREATE TABLE plant (id int PRIMARY KEY, 
 nom varchar(255) NOT NULL, 
@@ -9,6 +10,18 @@ arrosage int not NULL,
 categorie varchar(255) not NULL, 
 image varchar(255) not null
 );
+
+CREATE TABLE "user" (id SERIAL PRIMARY KEY, 
+pseudo varchar(50) not null,
+email varchar(50) not null,
+password varchar(255) not null,
+role INT not null,
+token varchar(255) null
+);
+
+INSERT INTO "user" (pseudo, email, password, role) VALUES 
+('admin', 'admin@test.com', 'admin', 1),
+('cyn', 'cyn@test.com', 'cyn', 2);
 
 INSERT INTO plant (id, nom, soleil, arrosage, categorie, image) VALUES 
 (

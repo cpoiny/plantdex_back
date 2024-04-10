@@ -18,7 +18,7 @@ export class UserService {
 private userRepository = AppDataSource.getRepository(User);
 
 
-  async signup(email: string, password: string) {
+  async signup(pseudo: string, email: string, password: string) {
     console.log("UserService");
 
     // 10 correspond au nombre de round pour le hashage
@@ -26,8 +26,10 @@ private userRepository = AppDataSource.getRepository(User);
 
     // grace au repository on a acces à la methode create qui est notre requete SQL avec orm
     const newUser = this.userRepository.create({
+        pseudo: pseudo,
         email: email, 
-        password: hashedPassword
+        password: hashedPassword,
+        role: 2
     });
 
     // on save car la methode create ne save pas, elle create juste
@@ -59,6 +61,8 @@ private userRepository = AppDataSource.getRepository(User);
   process.env.JWT_SECRET!, 
   {expiresIn: "1h"});
 
+  user.token = token;
+  this.userRepository.save(user);
   // on renvoit le token si email et password ok
   // ce token contient des infos sur notre user
   return token;

@@ -6,9 +6,19 @@ export class User {
   @PrimaryGeneratedColumn()
   id?: number;
 
-  @Column({nullable : false})
+  @Column({nullable : true})
+  pseudo? : string;
+
+  @Column({nullable : true})
   email?: string;
 
-  @Column({nullable : false})
+  @Column({nullable : true})
   password?: string;
+  
+  @Column({nullable: true})
+  role?: number;
+
+  @Column({nullable: true})
+  token?: string;
+
 }
