@@ -33,7 +33,8 @@ export class UserController {
         const token = user!.token
         // si on a un token on le renvoit
         if(token) {
-            res.status(201).json(user);
+            //important: ici je retourne un objet de type user, si je mets ({user: user}) , je retourne un objet contenant un objet de type user
+            res.status(201).json({user, message: "Connexion sucess"});
         } else {
             res.status(500).json({ message: "You Failed to connect !" });
         }
