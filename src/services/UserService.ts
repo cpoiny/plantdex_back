@@ -65,7 +65,7 @@ private userRepository = AppDataSource.getRepository(User);
   this.userRepository.save(user);
   // on renvoit le token si email et password ok
   // ce token contient des infos sur notre user
-  return token;
+  return user;
 
 
   }
